@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const urlSchema = new mongoose.Schema(
   {
-    ShortId: {
+    shortId: {
       type: String,
       required: true,
       unique: true,
@@ -11,13 +11,19 @@ const urlSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    visitHistory: [{ timestamps: { type: Number } }],
+    visitHistory: [
+      {
+        timestamp: {
+          type: Number,
+        },
+      },
+    ],
   },
   {
     timestamps: true,
   },
 );
 
-const URL = mongoose.model("url", urlSchema);
+const URL = mongoose.model("URL", urlSchema);
 
 export default URL;
